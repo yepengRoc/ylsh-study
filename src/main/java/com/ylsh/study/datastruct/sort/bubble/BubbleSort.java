@@ -1,4 +1,4 @@
-package com.ylsh.study.datastruct.sort;
+package com.ylsh.study.datastruct.sort.bubble;
 /**
  * 冒泡排序
  * @author YePengPeng
