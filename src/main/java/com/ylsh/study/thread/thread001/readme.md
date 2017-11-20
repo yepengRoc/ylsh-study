@@ -49,22 +49,33 @@ join()方法的一个重点是要区分出和sleep()方法的区别。join(2000)
 
 sleep(2000)不释放锁，join(2000)释放锁，因为join()方法内部使用的是wait()，因此会释放锁。看一下join(2000)的源码就知道了，join()其实和join(2000)一样，无非是join(0)而已：
  1	public final synchronized void join(long millis) 
+ 
  2     throws InterruptedException {
+ 
  3     long base = System.currentTimeMillis();
+ 
  4     long now = 0;
  5 
  6     if (millis < 0) {
+ 
  7             throw new IllegalArgumentException("timeout value is negative");
  8     }
  9 
 10     if (millis == 0) {
+
 11         while (isAlive()) {
+
 12         wait(0);
+
 13         }
+
 14     } else {
 15         while (isAlive()) {
+
 16         long delay = millis - now;
+
 17         if (delay <= 0) {
+
 18             break;
 19         }
 20         wait(delay);
