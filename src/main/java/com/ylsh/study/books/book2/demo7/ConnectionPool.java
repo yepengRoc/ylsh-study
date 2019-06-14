@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ConnectionPool {
 
-    private LinkedList<Connection> pool = new LinkedList<>();
+    private LinkedList<Connection> pool = new LinkedList<Connection>();
 
     public ConnectionPool(int initialSize){
         if(initialSize > 0){

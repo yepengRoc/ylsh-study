@@ -512,6 +512,15 @@
             <scope>compile</scope>
         </dependency>
 
+
+
+		<!-- redis 连接jar包-->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+
     </dependencies>
   <build>
     <finalName>ylsh-study</finalName>

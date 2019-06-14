@@ -1,7 +1,7 @@
 package com.ylsh.study.books.book2.demo5;
 
 public class ThreadLocalStudy {
-    static ThreadLocal<Integer> tl = new ThreadLocal<>();
+    static ThreadLocal<Integer> tl = new ThreadLocal<Integer>();
 
     public static void main(String[] args) {
         tl.set(1);

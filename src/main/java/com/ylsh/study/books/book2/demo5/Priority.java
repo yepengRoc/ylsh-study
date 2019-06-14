@@ -11,7 +11,7 @@ public class Priority {
     private static volatile boolean notEnd = true;
 
     public static void main(String[] args) {
-        List<Job> jobs = new ArrayList<>();
+        List<Job> jobs = new ArrayList<Job>();
         for(int i = 0;i < 10;i++){
             int priority = i < 5? Thread.MIN_PRIORITY : Thread.MAX_PRIORITY;
             Job job = new Job(priority);
@@ -41,7 +41,7 @@ public class Priority {
         public Job(int priority){
             this.priority = priority;
         }
-        @Override
+        
         public void run() {
             while (notStart){
                 Thread.yield();
