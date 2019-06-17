@@ -2,6 +2,7 @@ package com.ylsh.study.books.javaBfbcdys;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -24,6 +25,11 @@ public class Sty1 {
             //共享锁
             Semaphore semaphore = new Semaphore(10);
             semaphore.acquire();
+            semaphore.release();
+
+            CountDownLatch countDownLatch = new CountDownLatch(10);
+            countDownLatch.await();
+            countDownLatch.countDown();
 
 
         } catch (InterruptedException e) {
