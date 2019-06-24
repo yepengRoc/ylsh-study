@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ylsh-study:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ylsh-study.war">
+      <element id="artifact" artifact-name="ylsh-study:war exploded" />
+    </root>
+  </artifact>
+</component>
