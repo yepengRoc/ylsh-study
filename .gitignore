@@ -5,3 +5,4 @@
 *.component
 *.prefs
 org.eclipse.*
+/.idea/
