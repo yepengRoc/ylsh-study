@@ -23,11 +23,11 @@ public class Sty1 {
             condition.signalAll();
             lock.unlock();
             //共享锁
-            Semaphore semaphore = new Semaphore(10);
+            Semaphore semaphore = new Semaphore(10);//限制最多有这么多线程可运行
             semaphore.acquire();
             semaphore.release();
 
-            CountDownLatch countDownLatch = new CountDownLatch(10);
+            CountDownLatch countDownLatch = new CountDownLatch(10);//控制这么多线程一起执行
             countDownLatch.await();
             countDownLatch.countDown();
 

@@ -11,6 +11,7 @@ public class Sty1 {
     public void test1(){
 
         Lock loc = new ReentrantLock();
+        Integer.parseInt("");
 
     }
 }
