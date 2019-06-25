@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/***
+ * 使用线程池进行优化  实现线程复用
+ */
 public class BioTimeServer1 {
 
 
@@ -15,10 +18,11 @@ public class BioTimeServer1 {
             server = new ServerSocket(port);
             System.out.println("server start port:"+port);
             Socket socket = null;
+
+            TimeServerHandlerExecutePool executePool = new TimeServerHandlerExecutePool(10, 20);
             while(true){
                 socket = server.accept();
-                new Thread(new BioTimeServerHandler(socket)).start();
-
+                executePool.executor(new BioTimeServerHandler(socket));
             }
         } finally {
             if(null != server){
@@ -27,6 +31,7 @@ public class BioTimeServer1 {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                server = null;//help  gc
             }
         }
 

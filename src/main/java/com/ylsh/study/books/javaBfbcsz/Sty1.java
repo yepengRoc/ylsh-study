@@ -1,4 +1,4 @@
-package com.ylsh.books.javaBfbcsz;
+package com.ylsh.study.books.javaBfbcsz;
 
 import org.junit.Test;
 
