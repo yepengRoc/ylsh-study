@@ -458,7 +458,7 @@
 		</dependency>
 
 
-<!--		<dependency>
+	<!--	<dependency>
 			<groupId>jbarcode</groupId>
 			<artifactId>jbarcode</artifactId>
 			<version>0.2.8</version>
@@ -527,12 +527,12 @@
 			<version>2.9.0</version>
 		</dependency>
 
-		<!--netty相关包-->
+		<!--netty相关的包-->
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId>
-			<version>4.0.42.Final</version>
 		</dependency>
+
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-tcnative-boringssl-static</artifactId>
