@@ -9,16 +9,30 @@ import io.netty.channel.ChannelOutboundHandlerAdapter;
 import java.util.Date;
 
 public class TimeClientHandler extends ChannelInboundHandlerAdapter {
+
+    private final ByteBuf firstMessage;
+    public TimeClientHandler(){
+        byte[] req = "query time order".getBytes();
+        firstMessage = Unpooled.buffer(req.length);
+        firstMessage.writeBytes(req);
+    }
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf buf = (ByteBuf) msg;
         byte[] req = new byte[buf.readableBytes()];
         buf.readBytes(req);
         String body = new String(req,"UTF-8");
-        System.out.println("nio time server receive:" + body);
-        String curTime = new Date() + "";
-        ByteBuf resp = Unpooled.copiedBuffer(curTime.getBytes());
-        ctx.write(resp);
+        System.out.println("nio time client receive:" + body);
+    }
+
+    /**
+     * 首先调用此方法
+     * @param ctx
+     * @throws Exception
+     */
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        ctx.writeAndFlush(ctx);
     }
 
     @Override
