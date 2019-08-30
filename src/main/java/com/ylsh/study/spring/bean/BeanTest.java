@@ -5,12 +5,21 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 
+import java.util.Map;
+
 public class BeanTest {
     
     @Test
     public void testBean(){
        BeanFactory bf = new XmlBeanFactory(new ClassPathResource("spring-config.xml"));
        MyTestBean myTestBean = (MyTestBean) bf.getBean("myTestBean");
+        Map<Thread, StackTraceElement[]> ts = Thread.getAllStackTraces();
+       /* StackTraceElement[] ste = ts.get(Thread.currentThread());
+        for (StackTraceElement s : ste) {
+            System.out.println(s.toString());
+//            Log.d("Info ", s.toString());
+        }
+        new Exception("print trace").printStackTrace();*/
        System.out.println(myTestBean.getMyTestStr());
     }
 

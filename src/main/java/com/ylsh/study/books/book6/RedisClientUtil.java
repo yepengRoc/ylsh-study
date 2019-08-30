@@ -53,6 +53,7 @@ public static final String sentinels = "redis.uat.chunbo.com:26381";//stock
     public static void main(String[] args) {
         JedisSentinelPool pool = getPool();
         Jedis jedis = pool.getResource();
+
         String str =  jedis.get("1004026_5_1");
         System.out.println(str);
 //        jedis.set("hello","world");

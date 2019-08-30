@@ -535,6 +535,12 @@
 		</dependency>
 
 
+		<!-- https://mvnrepository.com/artifact/com.lmax/disruptor 高性能队列 -->
+		<dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+			<version>3.4.2</version>
+		</dependency>
 	</dependencies>
   <build>
     <finalName>ylsh-study</finalName>
