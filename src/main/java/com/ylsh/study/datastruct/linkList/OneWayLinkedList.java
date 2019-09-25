@@ -1,5 +1,7 @@
 package com.ylsh.study.datastruct.linkList;
 
+import javax.xml.crypto.Data;
+
 /**
  * 单向链表
  */
@@ -9,11 +11,8 @@ public class OneWayLinkedList<T> {
      * 头节点
      */
 
-    private Node header = new Node(null,null);
-    /**
-     * 尾节点
-     */
-    private Node tail;
+    private Node header ;
+//    private Node tail ;
 
     private int size = 0;
 
@@ -23,45 +22,72 @@ public class OneWayLinkedList<T> {
      * @return
      */
 
-    public Node add(T t){
+    public boolean add(T t){
         if(null == t){
-            return null;
+            return false;
         }
-
-
-        Node next = header.next;
-        Node addNode = new Node(t,next);
-
+        Node addNode = new Node(t,null);
+        if(null == header){
+            header = new Node(null, null);
+//            tail = addNode;
+        }
+        addNode.next = header.next;
         header.next = addNode;
-
-        if(null == tail){
-            tail = addNode;
-        }
         size++;
-        return addNode;
+        return true;
 
     }
 
     /**
-     * 尾插法
+     * 指定位置插入
+     * @param index
+     * @param t
      * @return
      */
-    public Node tailAdd(T t){
-        if(null == t){
-            return null;
-
+    public boolean add(int index,T t){
+        if(index > size || index < 0 || t == null){
+            return false;
         }
-        Node addNode = new Node(t,null);
-
-        if(null == tail){
-            tail = addNode;
+        Node addNode = new Node(t, null);
+        Node pre = header;
+        Node node;
+        int i = 0;
+        while((node = header.next) != null){
+            if(i == index){
+              break;
+            }
+            pre = node;
+            i++;
         }
-        tail.next = addNode;
-        tail = addNode;
-        size++;
-
-        return tail;
+        addNode.next = pre.next;
+        pre.next = addNode;
+        return true;
     }
+
+
+    public boolean remove(T t){
+        if(null == t){
+            return false;
+        }
+        //记录前一个节点
+        Node pre = header;
+        Node data;
+        while((data = header.next) != null){
+            if(t == data.value){
+                pre.next = data.next;
+                return true;
+            }
+            pre = data;
+        }
+        return false;
+
+    }
+
+
+
+
+
+
 
     private class Node<T>{
         private T value;

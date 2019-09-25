@@ -9,11 +9,7 @@ public class OneWayCircularLinkedList<T> {
     /**
      * 头节点
      */
-    private DataNode head = new DataNode(null,null);
-    /**
-     * 尾节点
-     */
-    private DataNode tail;
+    private DataNode head ;
 
     private int size;
     private class  DataNode<T>{
@@ -45,31 +41,30 @@ public class OneWayCircularLinkedList<T> {
 
     private boolean addNode(T t){
         if(null == t){
-            return true;
+            return false;
         }
         DataNode addNode = new DataNode(t, null);
         if(null == head){
-            tail = head = addNode;
-            tail.next = head;
-            return true;
+            head = new DataNode(null, null);
+            head.next = head;
         }
-        addNode.next = tail.next;
-        tail.next = addNode;
-        return false;
+        addNode.next = head.next;
+        head.next = addNode;
+        return true;
     }
 
-    private T remove(T t){
-         if(null == head){
-             return null;
+    private boolean remove(T t){
+         if(null == t){
+             return false;
          }
-        DataNode data = head;
-         while(true){
-
+        DataNode pre = head;
+         DataNode data;
+         while((data = head.next) != head){
+            if(t == data.value){
+                return true;
+            }
+             pre = data;
          }
-         if(data.value == t || data.value.equals(t)){
-
-         }
-         return ;
-
+         return false;
     }
 }
