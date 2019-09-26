@@ -61,6 +61,7 @@ public class OneWayLinkedList<T> {
         }
         addNode.next = pre.next;
         pre.next = addNode;
+        size++;
         return true;
     }
 
@@ -75,6 +76,7 @@ public class OneWayLinkedList<T> {
         while((data = header.next) != null){
             if(t == data.value){
                 pre.next = data.next;
+                size--;
                 return true;
             }
             pre = data;
@@ -82,6 +84,31 @@ public class OneWayLinkedList<T> {
         return false;
 
     }
+
+    /**
+     * 移除指定位置的元素
+     * @param idx
+     * @return
+     */
+    public boolean remove(int idx){
+        if(idx < 1 || idx > size){
+            return false;
+        }
+        Node pre = header;
+        Node data = null;
+        int i = 0;
+        while((data = header.next) != null){
+             if(i == idx){
+                 pre.next = data.next;
+                 size--;
+                 return true;
+             }
+            i++;
+            pre = data;
+        }
+        return false;
+    }
+
 
 
 
