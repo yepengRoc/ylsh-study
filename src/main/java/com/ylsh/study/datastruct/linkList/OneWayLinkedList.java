@@ -16,6 +16,10 @@ public class OneWayLinkedList<T> {
 
     private int size = 0;
 
+    public OneWayLinkedList(){
+        header = new Node(null, null);
+    }
+
     /**
      * 这里采用头插法处理
      * @param t
@@ -27,10 +31,10 @@ public class OneWayLinkedList<T> {
             return false;
         }
         Node addNode = new Node(t,null);
-        if(null == header){
+       /* if(null == header){
             header = new Node(null, null);
 //            tail = addNode;
-        }
+        }*/
         addNode.next = header.next;
         header.next = addNode;
         size++;
@@ -82,7 +86,6 @@ public class OneWayLinkedList<T> {
             pre = data;
         }
         return false;
-
     }
 
     /**

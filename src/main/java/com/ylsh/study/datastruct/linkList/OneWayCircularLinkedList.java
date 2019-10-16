@@ -12,6 +12,13 @@ public class OneWayCircularLinkedList<T> {
     private DataNode head ;
 
     private int size;
+
+    public OneWayCircularLinkedList(){
+//        if(null == head){
+            head = new DataNode(null, null);
+            head.next = head;
+//        }
+    }
     private class  DataNode<T>{
         private T value;
 
@@ -44,10 +51,7 @@ public class OneWayCircularLinkedList<T> {
             return false;
         }
         DataNode addNode = new DataNode(t, null);
-        if(null == head){
-            head = new DataNode(null, null);
-            head.next = head;
-        }
+
         addNode.next = head.next;
         head.next = addNode;
         return true;
