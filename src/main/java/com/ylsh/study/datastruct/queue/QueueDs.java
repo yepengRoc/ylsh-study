@@ -18,9 +18,10 @@ public class QueueDs {
     //使用数组或链表实现
 
     public static void main(String[] args) {
+//        transient Object
         ArrayList arrayList = new ArrayList();
 
 //        LinkedTransferQueue li
-
+//        Thread
     }
 }
