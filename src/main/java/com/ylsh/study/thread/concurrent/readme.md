@@ -336,3 +336,26 @@ http://cmsblogs.com/?p=2122
  transferred to the main queue.  A special value of status
  field is used to mark which queue a node is on.
  
+ 
+ ### condition 
+  
+   Returns true if a node, always one that was initially placed on
+   a condition queue, is now waiting to reacquire on sync queue.
+   @param node the node
+   @return true if is reacquiring
+
+     final boolean isOnSyncQueue(Node node) {
+         if (node.waitStatus == Node.CONDITION || node.prev == null)
+             return false;
+         if (node.next != null) // If has successor, it must be on queue
+             return true;
+        
+        node.prev can be non-null, but not yet on queue because
+        the CAS to place it on queue can fail. So we have to
+        traverse from tail to make sure it actually made it.  It
+        will always be near the tail in calls to this method, and
+        unless the CAS failed (which is unlikely), it will be
+        there, so we hardly ever traverse much.
+        
+         return findNodeFromTail(node);
+     }
