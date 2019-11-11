@@ -1,10 +1,11 @@
 package com.ylsh.study.thread.concurrent;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 
 public class CyclicByrrierSty {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws  Exception{
 
         CyclicBarrier cyclicBarrier = new CyclicBarrier(5);
 
@@ -12,5 +13,10 @@ public class CyclicByrrierSty {
         cyclicBarrier.notify();
 
 //        cyclicBarrier.wait();
+
+        CountDownLatch countDownLatch = new CountDownLatch(5);
+
+        countDownLatch.countDown();
+
     }
 }
