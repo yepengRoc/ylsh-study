@@ -14,9 +14,7 @@ public class CyclicByrrierSty {
 
 //        cyclicBarrier.wait();
 
-        CountDownLatch countDownLatch = new CountDownLatch(5);
 
-        countDownLatch.countDown();
 
     }
 }
