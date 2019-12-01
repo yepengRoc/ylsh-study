@@ -1,6 +1,10 @@
 package com.ylsh.ssy.java8.sty001;
 
+import org.junit.Test;
+
 import java.util.*;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 /**
  * lambda表达式，是没有声明的方法，即没有访问修饰符、返回值和名字
@@ -40,15 +44,92 @@ public class Test004 {
         list.add("wangwu");
 
         Collections.sort(list,(String o1,String o2) -> {
-            return o2.compareTo(o1);
+            return o2.compareTo(o1);//声明式 statement
         });
         //直接逆序
          Collections.sort(list, Comparator.reverseOrder());
         /**
          * 更加简介。因为list存储的类型已经是清楚的，可以推断出来。compare作为返回
+         *
          */
-        Collections.sort(list,(o1,o2) -> o2.compareTo(o1));
+        Collections.sort(list,(o1,o2) -> o2.compareTo(o1) );//表达式风格，没有分号和 return
 
 
     }
+
+    /**
+     * 如果一个函数接收一个函数作为参数，或者返回值是一个函数，则是一个高阶函数
+     * 这里的就是一个高阶函数。
+     * 传统的计算，需要先在方法内把计算逻辑定义出来，然后再去调用
+     */
+
+    class FunctionTest{
+        public int compute(int i , Function<Integer,Integer> function){
+            return function.apply(i);
+        }
+
+        public String convert(int i,Function<Integer,String> function){
+            return function.apply(i);
+        }
+    }
+    @Test
+    public void functionTest(){
+        FunctionTest functionTest = new FunctionTest();
+        //
+        System.out.println(functionTest.compute(1, val -> {
+            return 1 * 2;
+        }));
+        System.out.println(functionTest.compute(1, val -> 1 * 2));
+        System.out.println(functionTest.convert(1, val -> String.valueOf(val)));
+    }
+    /**
+     * Function 解读
+     * 里面有两个default方法
+     * compose 方法 实现多个function函数的串联
+     * andThen 方法
+     * identity 返回输入参数
+     *
+     */
+
+
+    @Test
+    public void functionMethodTest(){
+        System.out.println(composeMethod(2, val -> val * 4, val -> val * val));
+        System.out.println(andThenMethod(2,val -> val*4,val -> val*val));
+
+        System.out.println(biFunctionM(2,3,(a,b) -> a+b));
+        System.out.println(biFunctionM(2,3,(a,b) -> a-b));
+        System.out.println(biFunctionM(2,3,(a,b) -> a*b));
+        System.out.println(biFunctionM(2,3,(a,b) -> b/a));
+
+        System.out.println(biAndThenM(2,4,(a,b) -> a+b,a -> a*a));
+
+    }
+
+    public int composeMethod(int a ,Function<Integer,Integer> f1,Function<Integer,Integer> f2){
+        return f1.compose(f2).apply(a);
+    }
+
+    public int andThenMethod(int a,Function<Integer,Integer> f1,Function<Integer,Integer> f2){
+        return f1.andThen(f2).apply(a);
+    }
+
+    /**
+     * BiFunction  传入两个 参数 返回一个结果
+     * 为什么没有 compose 。因为function只能返回一个结果，但是bifunction需要两个参数
+     *
+     */
+
+    public int biFunctionM(int a, int b, BiFunction<Integer,Integer,Integer> biFunction){
+        return biFunction.apply(a, b);
+    }
+    /**
+     * bifunction
+     * andThen 方法，类比上面的方法
+     */
+    public int biAndThenM(int a, int b, BiFunction<Integer,Integer,Integer> biFunction,Function<Integer,Integer> f){
+        return biFunction.andThen(f).apply(a, b);
+    }
+
+
 }
