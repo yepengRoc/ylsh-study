@@ -38,6 +38,15 @@ public class Sty016 extends ClassLoader {
 
     }
 
+    /**
+     * 需要给自定义的类加载器给一个这样的构造方法，记录类加载器的父加载器
+     * @param parent
+     */
+    public Sty016(ClassLoader parent){
+        super(parent);
+
+    }
+
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
@@ -118,7 +127,7 @@ public class Sty016 extends ClassLoader {
          * 指定父类加载器。这里的hashcode和loader1一样。虽然命名空间不同，但是都是由委托父类进行加载的。
          * 子加载器可以看到父加载器加载的类，父加载器看不到子加载器加载的类
          */
-        Sty016 loader3 = new Sty016("load2",load1);
+        Sty016 loader3 = new Sty016("load3",load1);
         loader3.setPath("/Users/yexiaoheiheliunuannuan/Desktop");
         Class<?> clazz3 = loader3.loadClass("com.ylsh.jvm.Sty001");
         System.out.println("class:" + clazz3.hashCode());
@@ -162,6 +171,40 @@ public class Sty016 extends ClassLoader {
 
         object = clazz.newInstance();
         System.out.println(object);
+    }
+
+    /**
+     * 通过指定类加载器的父类，来查看字节码是否只加载一份
+     * @throws Exception
+     */
+    @Test
+    public void test() throws Exception{
+        Sty016 load1 = new Sty016("load1");
+        load1.setPath("/Users/yexiaoheiheliunuannuan/Desktop");
+
+        Class<?> clazz = load1.loadClass("com.ylsh.jvm.Sty001");
+        System.out.println("class:" + clazz.hashCode());
+
+        Object object = clazz.newInstance();
+        System.out.println(object);
+        System.out.println(object.getClass().getClassLoader());
+
+        Sty016 loader2 = new Sty016("load2");
+        loader2.setPath("/Users/yexiaoheiheliunuannuan/Desktop");
+        Class<?> clazz2 = loader2.loadClass("com.ylsh.jvm.Sty001");
+        System.out.println("class:" + clazz2.hashCode());
+
+        Object object2 = clazz.newInstance();
+        System.out.println(object2);
+
+        Sty016 loader3 = new Sty016("load3",loader2);
+        loader3.setPath("/Users/yexiaoheiheliunuannuan/Desktop");
+        Class<?> clazz3 = loader3.loadClass("com.ylsh.jvm.Sty001");
+        System.out.println("class:" + clazz3.hashCode());
+
+        Object object3 = clazz.newInstance();
+        System.out.println(object3);
+
     }
 
 
