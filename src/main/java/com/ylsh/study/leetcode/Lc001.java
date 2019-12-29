@@ -10,7 +10,7 @@ import java.util.Map;
  * 数组限制：
  * 如果有的话，只有一对结果，
  */
-public class lc001 {
+public class Lc001 {
 
     public int[] twoSum(int[] arr){
 
