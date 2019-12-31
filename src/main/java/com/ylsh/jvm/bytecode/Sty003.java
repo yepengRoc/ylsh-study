@@ -18,7 +18,7 @@ import java.net.ServerSocket;
  * java字节码对于异常的处理方式：
  * 1统一采用异常表的方式来对异常进行处理
  * 2在jdk1.4.2之前的版本中，并不是使用异常表的方式来对异常进行处理的，而是采用特定的指令方式。
- * 3当异常处理存在finnally语句块是，现代化的jvm采取的处理方式是将finnally语句块的自己吗拼接到
+ * 3当异常处理存在finally语句块是，现代化的jvm采取的处理方式是将finally语句块的自己吗拼接到
  * 每一个catch块后面。即程序中有多少个catch块，就有多少个finally语句块。
  */
 public class Sty003 {
