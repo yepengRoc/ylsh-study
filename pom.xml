@@ -541,6 +541,14 @@
 			<artifactId>disruptor</artifactId>
 			<version>3.4.2</version>
 		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/cglib/cglib -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.2.8</version>
+		</dependency>
 	</dependencies>
   <build>
     <finalName>ylsh-study</finalName>
