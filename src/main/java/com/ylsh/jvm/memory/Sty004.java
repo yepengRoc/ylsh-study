@@ -19,7 +19,7 @@ public class Sty004 {
             enhancer.setSuperclass(Sty004.class);
             enhancer.setUseCache(false);
             enhancer.setCallback((MethodInterceptor)(obj, mehod, args1, proxy) ->{
-                proxy.invokeSuper(obj,args1);
+                return proxy.invokeSuper(obj,args1);
             });
             System.out.println("cglib creat obj");
             enhancer.create();
