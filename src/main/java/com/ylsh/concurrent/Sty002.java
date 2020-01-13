@@ -3,6 +3,9 @@ package com.ylsh.concurrent;
 import com.ylsh.study.javabase.demo1.TrafficLightExtends;
 import org.omg.CORBA.OBJ_ADAPTER;
 
+/**
+ * 死锁
+ */
 public class Sty002 {
 
     public static void main(String[] args){
