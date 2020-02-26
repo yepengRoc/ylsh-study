@@ -1,13 +1,12 @@
-package com.ylsh.ssy.java8.sty001;
+package com.ylsh.java8.sty001;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.function.Function;
 
-public class Test003 {
+public class Sty003 {
 
     public static void main(String[] args){
         new Thread(() -> {
@@ -31,21 +30,15 @@ public class Test003 {
          */
         Function<String, String> function = String::toUpperCase;
         System.out.println(function.getClass().getInterfaces()[0]);
+        System.out.println(function.apply("aefd"));
         list.stream().map(function).forEach(item -> System.out.println(item));
 
 
     }
     @Test
     public void test1(){
-
+        Function<String, String> function = String::toUpperCase;
+        System.out.println(function.getClass().getInterfaces()[0]);
+        System.out.println(function.apply("aefd"));
     }
-}
-
-@FunctionalInterface
-interface MyInterface0031{
-    void myMethod();
-}
-@FunctionalInterface
-interface MyInterface0032{
-    void myMethod();
 }

@@ -1,4 +1,4 @@
-package com.ylsh.ssy.java8.sty001;
+package com.ylsh.ssy.java8.sty002;
 
 
 interface  MyInterface{
@@ -7,14 +7,14 @@ interface  MyInterface{
     String toString();
 }
 
-public class Test002 {
+public class Sty002 {
 
     public void test2(MyInterface myInterface){
         myInterface.test();
     }
 
     public static void main(String[] args){
-        Test002 test002 = new Test002();
+        Sty002 test002 = new Sty002();
 
         test002.test2(() -> System.out.println("123"));
 

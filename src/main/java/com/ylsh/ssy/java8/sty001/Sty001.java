@@ -5,12 +5,15 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SwingTest {
+public class Sty001 {
 
     public static void main(String[] args){
         JFrame jFrame = new JFrame("my frame");
 
         JButton jButton = new JButton("my button");
+        /**
+         * 1.8之前的使用写法
+         */
 
 //        jButton.addActionListener(new ActionListener() {
 //            @Override
@@ -19,7 +22,9 @@ public class SwingTest {
 //            }
 //
 //        });
-
+        /**
+         * 1.8的写法
+         */
         jButton.addActionListener(actionEvent -> System.out.println("123"));
 
       jFrame.add(jButton);

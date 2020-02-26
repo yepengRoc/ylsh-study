@@ -12,6 +12,11 @@ package com.ylsh.concurrent;
 public class Sty007 {
 
     public static void main(String[] args){
-
+        Sty007 sty007 = new Sty007();
+        if(null != null){
+            System.out.println("真");
+        }
+        System.out.println(sty007.getClass().getName());
+//        sun.nio.ch.Util
     }
 }
