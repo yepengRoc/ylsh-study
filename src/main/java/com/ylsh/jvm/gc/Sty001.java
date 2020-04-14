@@ -14,6 +14,8 @@ import org.junit.Test;
  *
  *  java -XX:+PrintCommandLineFlags -version 打印虚拟机信息和虚拟机参数
  *
+ *  PretenureSizeThreshold:设置对象超过多大时直接在老年代进行分配
+ *
  */
 public class Sty001 {
 

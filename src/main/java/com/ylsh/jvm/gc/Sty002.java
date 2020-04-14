@@ -5,7 +5,7 @@ package com.ylsh.jvm.gc;
 
 /**
  * 配置jvm参数
- * -verbose:gc -Xms20m -Xmx20m -Xmn10m- XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:PretenureSizeThreshold=494304
+ * -verbose:gc -Xms20m -Xmx20m -Xmn10m -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:PretenureSizeThreshold=494304
  * -XX:PretenureSizeThreshold=494304 大于等于4m的对象直接分配在老年代分配
  * -XX:+UseSerialGC  只有使用此垃圾收集器PretenureSizeThreshold 参数才生效.这里实际验证的时候发现不设置
  *  此垃圾收集器，也直接把大于4m的对象分配在了老年代。
