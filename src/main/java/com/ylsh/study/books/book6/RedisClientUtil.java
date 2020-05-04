@@ -24,15 +24,15 @@ public class RedisClientUtil {
 //    redis.dbindex=8
 
 //    public static final String sentinels = "redis.uat.chunbo.com:26380";
-//    public static final String sentinels = "bredis.chunbo.com:26380";
-public static final String sentinels = "redis.uat.chunbo.com:26381";//stock
+    public static final String sentinels = "bredis.chunbo.com:26380";
+//public static final String sentinels = "redis.uat.chunbo.com:26381";//stock
     public static final String mastername = "mymaster";
 
     public static final String password = null;
 
     public static int timeout = 10000;
 
-    public static int dbindex = 0;
+    public static int dbindex = 9;
 
 
 
@@ -50,11 +50,11 @@ public static final String sentinels = "redis.uat.chunbo.com:26381";//stock
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         JedisSentinelPool pool = getPool();
         Jedis jedis = pool.getResource();
 
-        String str =  jedis.get("1004026_5_1");
+        long str =  jedis.del("北京-北京市-朝阳区-朝阳区惠新西街南口地铁A口处，中航发展大厦B座   胡佳茵13601363296");
         System.out.println(str);
 //        jedis.set("hello","world");
 //        String value = jedis.get("hello");

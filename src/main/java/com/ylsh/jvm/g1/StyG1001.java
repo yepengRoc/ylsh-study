@@ -1,5 +1,7 @@
 package com.ylsh.jvm.g1;
 
+import java.util.ArrayList;
+
 /**
  * -verbose:gc
  * -Xms10m
@@ -12,6 +14,7 @@ package com.ylsh.jvm.g1;
 public class StyG1001 {
     public static void main(String[] args) {
         int size = 1024 * 1024;
+
 
         byte[] b_1 = new byte[size];
         byte[] b_2 = new byte[size];
