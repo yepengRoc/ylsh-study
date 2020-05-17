@@ -21,4 +21,8 @@ public class Sty008 {
         }
         return destCharArr;
     }
+
+    public static void main(String[] args) {
+        System.out.println(false == true);
+    }
 }
