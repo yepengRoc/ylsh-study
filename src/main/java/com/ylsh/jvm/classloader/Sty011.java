@@ -9,7 +9,7 @@ public class Sty011 {
 
     public static void main(String[] args){
         //查看子类是否加载
-        System.out.println(Child011.a);
+        System.out.println(Child011.a);//子类加载了，但是没有进行初始化
         //查看子类是否加载
         Child011.doSomething();
 
