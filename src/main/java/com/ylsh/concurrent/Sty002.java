@@ -19,7 +19,7 @@ public class Sty002 {
                     cntObj.increase();
 
             }
-        });
+        }).start();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -27,7 +27,7 @@ public class Sty002 {
                 cntObj.increase();
 
             }
-        });
+        }).start();
 
         //减
         new Thread(new Runnable() {
@@ -35,13 +35,13 @@ public class Sty002 {
             public void run() {
                cntObj.reduce();
             }
-        });
+        }).start();
         new Thread(new Runnable() {
             @Override
             public void run() {
                 cntObj.reduce();
             }
-        });
+        }).start();
     }
 }
 
@@ -65,7 +65,7 @@ class CntObj{
                 wait();
             }
             cnt++;
-            System.out.print(cnt);
+            System.out.print("增加：" +cnt);
 
             notify();
         } catch (InterruptedException e) {
@@ -84,7 +84,7 @@ class CntObj{
                 wait();
             }
             cnt--;
-            System.out.print(cnt);
+            System.out.print("减少：" + cnt);
             notify();
         } catch (InterruptedException e) {
             e.printStackTrace();
