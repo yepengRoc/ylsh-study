@@ -205,6 +205,137 @@ public class Practice9 {
         /**
          * 判断一颗树是否是平衡二叉树
          */
+        class Balance{
+            int height;
+            boolean isBalance;
+            Balance(int height,boolean isBalance){
+
+            }
+        }
+
+        public int isBalanceTree(Node node){
+            if(node == null){
+                return  0;
+            }
+            int left = isBalanceTree(node.left);
+            if(left < 0){
+                return left;
+            }
+            int right = isBalanceTree(node.right);
+            if(right < 0){
+                return right;
+            }
+          int dif = Math.abs(left - right);
+          if(dif > 1){
+              return -1;
+          }
+
+            return Math.max(left,right) + 1;
+        }
+
+        public Balance isBalance(Node node){
+            if(node == null){
+                return new Balance(0,true);
+            }
+            Balance leftData = isBalance(node.left);
+            if(!leftData.isBalance){
+                return new Balance(0,false);
+            }
+            Balance right = isBalance(node.right);
+            if(!right.isBalance){
+                return new Balance(0,false);
+            }
+            int dif = Math.abs(right.height - leftData.height);
+            if(dif > 1){
+                return new Balance(0,false);
+            }
+            return new Balance(dif + 1,false);
+
+        }
+
+
+        /**
+         * 判断是否是一个搜索二叉树
+         * 左子树 小于 根  右子树 大于根
+         *
+         * 第二种情况：中序遍历，看是否。是一个递增结果集
+         */
+
+        public boolean isSearchTree(Node node){
+
+            if(null != node){
+                if(null != node.left && node.left.val > node.val){
+                    return false;
+                }
+
+                if(null != node.right && node.right.val < node.val){
+                    return false;
+                }
+                    return isSearchTree(node.right) && isSearchTree(node.left);
+
+            }
+            return true;
+        }
+
+        /**
+         * 判断是否是完全二叉树
+         *
+         * 只有右孩子 没有左孩子 不是
+         * 有左孩子，没有右孩子，则左孩子右边的节点都是叶子节点
+         *
+         *    a   c  d  e
+         *    /
+         *    b
+         *    if(node.left == null && node.right != null){
+         *        return false;
+         *    }
+         *
+         */
+
+        public boolean isCompleteTree(){
+
+            Queue<Node> queue = new LinkedList<>();
+
+            boolean leaf = false;
+            queue.offer(root);
+
+            while(!queue.isEmpty()){
+
+                Node node = queue.poll();
+
+                if(null == node.left && null != node.right){
+                    return false;
+                }
+
+                if(leaf && (null != node.left || null != node.right)){
+                    return false;
+                }
+                if(null != node.left){
+                    queue.offer(node.left);
+                }
+                if(null != node.right){
+                    queue.offer(node.right);
+                }else{//说明只能是叶子节点
+                    leaf = true;
+                }
+
+            }
+            return false;
+        }
+
+        /**
+         * 求一颗完全二叉树节点的个数
+         *
+         * 左右相差高度为1
+         * 如果有左 右孩子可有 可无
+         *
+         * 可以回锅  -- 暂时没看太明白 TODO
+         *
+         * 左子树的最后一个节点可能在 最后一层的任何一个位置
+         */
+
+
+
     }
 
 
