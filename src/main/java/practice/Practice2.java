@@ -151,7 +151,7 @@ public class Practice2 {
         int i = leftD[0];
         int j = rightU[1];
         if(turnUp){
-            while( j < rightU[1]){
+            while( j < rightU[1]){// i >=
                 System.out.println(arr[i][j]);
                 i--;
                 j++;

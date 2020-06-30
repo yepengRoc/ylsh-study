@@ -3,11 +3,11 @@ package practice;
 /**
  * 前缀树
  */
-public class Pratice4 {
-
-
-
-}
+//public class Pratice4 {
+//
+//
+//
+//}
 
 class TrieTree{
 
