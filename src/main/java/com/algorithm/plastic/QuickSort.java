@@ -42,4 +42,35 @@ public class QuickSort {
             System.out.println(a);
         }
     }
+
+    public void plasticSort(int[] arr,int left,int right){
+        if(left < right){
+            int baseVal = arr[left];
+
+            int l = left;
+            int r = right;
+
+            while(l < r){
+                while(l < r && arr[r] > baseVal){
+                    r--;
+                }
+                if(l < r){//比l 小的值已经放到l上了。l 需要++
+                    arr[l] = arr[r];
+                    l++;
+                }
+                while(l < r && arr[l] < baseVal){
+                    l++;
+                }
+                if(l < r){
+                   arr[r] = arr[l];
+                   r--;
+                }
+            }
+            arr[l] = baseVal;
+            plasticSort(arr,l,l -1);
+            plasticSort(arr,l+1,right);
+        }
+    }
+
+
 }
