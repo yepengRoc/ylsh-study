@@ -2,6 +2,7 @@ package com.ylsh.jvm.bytecode;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 public class DynamicSuject implements InvocationHandler {
 
@@ -20,4 +21,8 @@ public class DynamicSuject implements InvocationHandler {
         System.out.println("after calling:" + method);
         return null;
     }
+
+   /* public static void main(String[] args) {
+        Proxy proxy = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),Subject.class,)
+    }*/
 }
