@@ -1,5 +1,11 @@
 package com.ylsh.study.datastruct.tree;
 
+import com.ylsh.study.books.book7.LinkedList;
+
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+
 /**
  * 高度平衡的二叉树
  * 规则：任何两颗子树的高度差不超过1
@@ -17,5 +23,14 @@ public class AVLTree {
         AvlTreeNode left;//左节点
         AvlTreeNode right;//右节点
         int height;//高度
+
+
+    }
+    public static void main(String[] args) {
+//        LinkedList linkedList = new LinkedList();
+//        Queue queue = new ArrayBlockingQueue(10);
+//        queue.poll();
+//
+//        queue.pop
     }
 }
