@@ -3,8 +3,6 @@ package com.ylsh.java8.sty001;
 
 import org.junit.Test;
 
-import javax.print.attribute.standard.ColorSupported;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
