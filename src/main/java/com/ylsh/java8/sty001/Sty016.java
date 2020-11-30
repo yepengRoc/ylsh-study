@@ -1,9 +1,6 @@
 package com.ylsh.java8.sty001;
 
-import com.ylsh.study.thread.thread001.SynchroniedTest;
 import org.junit.Test;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.test.annotation.SystemProfileValueSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;

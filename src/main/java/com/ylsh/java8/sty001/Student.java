@@ -6,9 +6,25 @@ public class Student {
 
     private int score;
 
+    private int age;
+
     public Student(String name,int score){
         this.name = name;
         this.score = score;
+    }
+
+    public Student(String name,int score,int age){
+        this.name = name;
+        this.score = score;
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getName() {
