@@ -3,9 +3,11 @@ package com.ylsh.java8.sty001;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -84,8 +86,15 @@ public class Sty019 {
         Map<Integer, Map<String, List<Student>>> map = students.stream().collect(Collectors.groupingBy(Student::getScore, Collectors.groupingBy(Student::getName)));
         System.out.println(map);
         System.out.println("------------");
-
+        /**
+         * 分数为80 进行分区
+         */
         Map<Boolean, List<Student>> map2 = students.stream().collect(Collectors.partitioningBy(student -> student.getScore() > 80));
+        /**
+         * 根据名字进行分组，然后取分组里面分数最小的
+         */
+        Map<String, Student> map3 = students.stream().collect(Collectors.groupingBy(Student::getName, Collectors.collectingAndThen(Collectors.minBy(Comparator.comparingInt(Student::getScore)), Optional::get)));
+
 
 
     }
