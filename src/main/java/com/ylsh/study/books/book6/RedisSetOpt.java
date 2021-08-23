@@ -15,13 +15,17 @@ public class RedisSetOpt {
     @Test
     public void baseOpt(){
         Jedis jedis = RedisClientUtil.getJedis();
-        jedis.sadd("set-key", "item1");
+        String rst = jedis.get("1052235-127-1");
+
+        System.out.println(rst);
+        jedis.del("1052235-127-1");
+       /* jedis.sadd("set-key", "item1");
 
         jedis.srem("","");//移除
 
         jedis.smembers("");// 查询所有set中的值
 
-        jedis.sismember("", "");//查询是否在某个set中
+        jedis.sismember("", "");//查询是否在某个set中*/
     }
 
 

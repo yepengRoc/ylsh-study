@@ -24,7 +24,7 @@ public class RedisClientUtil {
 //    redis.dbindex=8
 
 //    public static final String sentinels = "redis.uat.chunbo.com:26380";
-    public static final String sentinels = "bredis.chunbo.com:26380";
+/*    public static final String sentinels = "bredis.chunbo.com:26380";
 //public static final String sentinels = "redis.uat.chunbo.com:26381";//stock
     public static final String mastername = "mymaster";
 
@@ -32,7 +32,17 @@ public class RedisClientUtil {
 
     public static int timeout = 10000;
 
-    public static int dbindex = 9;
+    public static int dbindex = 9;*/
+
+    public static final String sentinels = "bredis.prod.chunbo.com:26381";
+    //public static final String sentinels = "redis.uat.chunbo.com:26381";//stock
+    public static final String mastername = "mymaster";
+
+    public static final String password = null;
+
+    public static int timeout = 10000;
+
+    public static int dbindex = 0;
 
 
 
