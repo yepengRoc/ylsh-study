@@ -9,12 +9,12 @@
   <url>http://maven.apache.org</url>
 <properties>
 		<mybatis.version>3.1.1</mybatis.version>
-		<spring.version>5.2.7.RELEASE</spring.version>
+		<spring.version>6.0.0</spring.version>
 		<spring.security.version>5.2.7.RELEASE</spring.security.version>
 		<ibatis.version>2.3.4.726</ibatis.version>
 		<mybatis.version>3.1.1</mybatis.version>
 		<mybatis-spring.version>1.1.1</mybatis-spring.version>
-		<org.springframework.version>5.2.7.RELEASE</org.springframework.version>
+		<org.springframework.version>6.0.0</org.springframework.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jackson-json.version>2.4.3</jackson-json.version>
 		<cxf.version>2.7.7</cxf.version>
